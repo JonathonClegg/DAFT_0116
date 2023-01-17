@@ -1,2 +1,3 @@
 Test test
-Test 2
+This is a test
+To make a conflict
