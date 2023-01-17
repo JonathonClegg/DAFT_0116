@@ -23,3 +23,4 @@ Intergovernmental Organisation or NGO
 Data Analayst or researcher
 * What is your career goal?
 TO become a competant data manager
+
