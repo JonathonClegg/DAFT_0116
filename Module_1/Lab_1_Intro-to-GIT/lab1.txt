@@ -1,0 +1,64 @@
+(base) MacBook-Pro:IRONHACK jon$ git clone https://github.com/JonathonClegg/IronJon
+Cloning into 'IronJon'...
+warning: You appear to have cloned an empty repository.
+(base) MacBook-Pro:IRONHACK jon$ cd IronJon
+(base) MacBook-Pro:IronJon jon$ touch about.txt
+(base) MacBook-Pro:IronJon jon$ git add .
+(base) MacBook-Pro:IronJon jon$ git commit -m"about me"
+[master (root-commit) 7bf8dee] about me
+ 1 file changed, 1 insertion(+)
+ create mode 100644 about.txt
+(base) MacBook-Pro:IronJon jon$ git push origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 299 bytes | 299.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/JonathonClegg/IronJon
+ * [new branch]      master -> master
+
+Pair Programming
+
+1. Forked to https://github.com/yenle2092/Ironyen
+
+2. Cloned https://github.com/JonathonClegg/Ironyen
+
+(base) MacBook-Pro:IronJon jon$ git clone https://github.com/JonathonClegg/Ironyen
+Cloning into 'Ironyen'...
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+
+
+3. Create a new branch named classmate.
+(base) MacBook-Pro:IronJon jon$ cd Ironyen
+MacBook-Air:IronJon jon$ git checkout -b classmate
+
+4. Create a new file with your name (ex. maya.txt) and finish the following sentence I enrolled Ironhack's Data Analytics bootcamp because.... When you are done, save the changes.
+
+(base) MacBook-Pro:Ironyen jon$ touch jon.txt
+
+5.Add the changes to git.
+(base) MacBook-Pro:Ironyen jon$ git add .
+
+6.Commit and push changes. Now, all the changes should be on your GitHub inside the forked repository.
+
+(base) MacBook-Pro:Ironyen jon$ git commit -m"jon text"
+[main 7f012d2] jon text
+ 1 file changed, 1 insertion(+)
+ create mode 100644 jon.txt
+
+ISSUE WHEN pushing to GITHub. 
+Alternative method used. Created forked edit directly on Github.
+
+
+7. Create a pull request to make changes appear in the original repository.
+	Done on Github
+
+8. Merge the branch your classmate created and now everyone's repos should have the original file (about.txt) as well as the new one with your classmate's name.
+	Done on Github
+
+

@@ -1,0 +1,112 @@
+Last login: Tue Jan 17 12:30:01 on ttys000
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+
+Prerequisites
+
+(base) MacBook-Pro:~ jon$ cd /Users/jon/desktop/
+(base) MacBook-Pro:desktop jon$ git clone https://github.com/JonathonClegg/DAFT_0116.git
+Cloning into 'DAFT_0116'...
+remote: Enumerating objects: 3192, done.
+remote: Counting objects: 100% (57/57), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 3192 (delta 31), reused 54 (delta 30), pack-reused 3135
+Receiving objects: 100% (3192/3192), 128.92 MiB | 21.90 MiB/s, done.
+Resolving deltas: 100% (1598/1598), done.
+(base) MacBook-Pro:desktop jon$ cd /Users/jon/desktop/DAFT_0116/
+(base) MacBook-Pro:DAFT_0116 jon$ git add .
+(base) MacBook-Pro:DAFT_0116 jon$ git commit -m"Changes to your-code"
+[main 768bf84] Changes to your-code
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+(base) MacBook-Pro:DAFT_0116 jon$ git push origin main
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 344 bytes | 344.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/JonathonClegg/DAFT_0116.git
+   c5fad67..768bf84  main -> main
+
+Step 5 - Create Conflicting Changes
+
+
+(base) MacBook-Pro:DAFT_0116 jon$ git log
+commit 768bf8482ca088054ea88adb86347eb20315a719 (HEAD -> main, origin/main, origin/HEAD)
+Author: jonathonclegg <jon7clegg@gmail.com>
+Date:   Tue Jan 17 12:53:43 2023 +0100
+
+    Changes to your-code
+
+commit c5fad67e35582864b32af9b64f4724b04ca5b279
+Author: jonathonclegg <jon7clegg@gmail.com>
+Date:   Tue Jan 17 12:34:15 2023 +0100
+
+    Your-code-update
+
+commit 5102205cb985906cd44b4fced6800a6a320d9565
+Author: jonathonclegg <jon7clegg@gmail.com>
+Date:   Tue Jan 17 12:22:07 2023 +0100
+
+    Your_code_about_me_added
+
+commit 418d01da2e410756ec23910849a568e8264fb5d8
+Author: ta-data-par <50342645+ta-data-par@users.noreply.github.com>
+Date:   Fri Nov 25 09:38:18 2022 +0100
+
+(base) MacBook-Pro:DAFT_0116 jon$ git reset --hard c5fad67e35582864b32af9b64f4724b04ca5b279
+HEAD is now at c5fad67 Your-code-update
+(base) MacBook-Pro:DAFT_0116 jon$ git checkout -b lab-resolving-git-conflicts
+Switched to a new branch 'lab-resolving-git-conflicts'
+(base) MacBook-Pro:DAFT_0116 jon$ git add .
+(base) MacBook-Pro:DAFT_0116 jon$ git commit -m"creating-conflict"
+[lab-resolving-git-conflicts eb125a9] creating-conflict
+ 1 file changed, 25 insertions(+), 2 deletions(-)
+ rewrite your-code/about-me.md (100%)
+(base) MacBook-Pro:DAFT_0116 jon$ git pull origin master
+fatal: couldn't find remote ref master
+(base) MacBook-Pro:DAFT_0116 jon$ git pull origin main
+From https://github.com/JonathonClegg/DAFT_0116
+ * branch            main       -> FETCH_HEAD
+Auto-merging your-code/about-me.md
+CONFLICT (content): Merge conflict in your-code/about-me.md
+Automatic merge failed; fix conflicts and then commit the result.
+(base) MacBook-Pro:DAFT_0116 jon$ git status
+On branch lab-resolving-git-conflicts
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   your-code/about-me.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base) MacBook-Pro:DAFT_0116 jon$ git add about-me.md
+fatal: pathspec 'about-me.md' did not match any files
+(base) MacBook-Pro:DAFT_0116 jon$ git add .
+(base) MacBook-Pro:DAFT_0116 jon$ git commit -m"resolve conflict"
+[lab-resolving-git-conflicts 8dc34e9] resolve conflict
+(base) MacBook-Pro:DAFT_0116 jon$ git push origin lab-resolving-git-conflicts
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 988 bytes | 988.00 KiB/s, done.
+Total 8 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'lab-resolving-git-conflicts' on GitHub by visiting:
+remote:      https://github.com/JonathonClegg/DAFT_0116/pull/new/lab-resolving-git-conflicts
+remote: 
+To https://github.com/JonathonClegg/DAFT_0116.git
+ * [new branch]      lab-resolving-git-conflicts -> lab-resolving-git-conflicts
+(base) MacBook-Pro:DAFT_0116 jon$ 
+
+
+Step 8 - Make Pull Request
+Done on Github at: https://github.com/JonathonClegg/DAFT_0116
+Branch merged successfully with Main
