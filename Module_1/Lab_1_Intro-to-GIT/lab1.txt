@@ -51,14 +51,13 @@ MacBook-Air:IronJon jon$ git checkout -b classmate
  1 file changed, 1 insertion(+)
  create mode 100644 jon.txt
 
-ISSUE WHEN pushing to GITHub. 
-Alternative method used. Created forked edit directly on Github.
+(base) MacBook-Pro:Ironyen jon$ git push origin classmate
 
 
 7. Create a pull request to make changes appear in the original repository.
 	Done on Github
 
 8. Merge the branch your classmate created and now everyone's repos should have the original file (about.txt) as well as the new one with your classmate's name.
-	Done on Github
+	Done on Github: https://github.com/JonathonClegg/IronJon
 
 
