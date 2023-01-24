@@ -96,4 +96,4 @@ SELECT count(review_score), number_cat_description FROM order_reviews
 GROUP BY number_cat_description
 ORDER BY count(review_score) DESC
 LIMIT 1;
--- '57420','GREAT'
+-- '57420','GREAT' var
