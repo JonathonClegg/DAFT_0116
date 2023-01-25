@@ -35,15 +35,6 @@ CREATE TABLE IF NOT EXISTS Invoices (
     Sales_personID int
 );
 
-INSERT INTO Cars 
-(ID, VIN, Manufacturer, Model, Year, Color)
-VALUES (0, "3K096I98581DHSNUP", "Volkswagen", "Tiguan", 2019, "Blue"),
-(1, "ZM8G7BEUQZ97IH46V", "Peugeot", "Rifter", 2019, "RED"),
-(2, "RKXVNNIHLVVZOUB4M", "Ford", "Fusion", 2018, "WHITE"),
-(3, "HKNDGS7CU31E9Z7JW", "Toyota", "RAV4", 2018, "SILVER"),
-(4, "DAM41UDN3CHU2WVF6", "Volvo", "V60", 2019, "GRAY"),
-(5, "DAM41UDN3CHU2WVF6", "Volvo", "V60 Cross Country", 2019, "GRAY");
-
 ALTER TABLE Cars
 ADD PRIMARY KEY (ID);
 ALTER TABLE Customers
@@ -53,18 +44,29 @@ ADD PRIMARY KEY (ID);
 ALTER TABLE Salespersons
 ADD PRIMARY KEY (ID);
 
-INSERT INTO Customers 
-(ID,CustomerID,Name,Phone,Email,Address,City,State_Province,Country,Postal)
-VALUES (0, 10001, "Pablo Picasso", "+34 636 17 63 82", "-", "Paseo de la Chopera, 14", "Madrid", "Madrid", "Spain", 28045),
-(1, 20001, "Abraham Lincoln	", "+1 305 907 7086", "-", "120 SW 8th St", "Miami", "Florida", "United States	", 33130),
-(2, 30001, "Napoléon Bonaparte", "+33 1 79 75 40 00", "-", "40 Rue du Colisée", "Paris", "Île-de-France	", "France", 75008);
-
 ALTER TABLE Invoices
 ADD FOREIGN KEY (CarID) REFERENCES Cars (ID);
 ALTER TABLE Invoices
 ADD FOREIGN KEY (CustomerID) REFERENCES Customers (ID);
 ALTER TABLE Invoices
 ADD FOREIGN KEY (Sales_personID) REFERENCES Salespersons (ID);
+
+
+INSERT INTO Cars 
+(ID, VIN, Manufacturer, Model, Year, Color)
+VALUES (0, "3K096I98581DHSNUP", "Volkswagen", "Tiguan", 2019, "Blue"),
+(1, "ZM8G7BEUQZ97IH46V", "Peugeot", "Rifter", 2019, "RED"),
+(2, "RKXVNNIHLVVZOUB4M", "Ford", "Fusion", 2018, "WHITE"),
+(3, "HKNDGS7CU31E9Z7JW", "Toyota", "RAV4", 2018, "SILVER"),
+(4, "DAM41UDN3CHU2WVF6", "Volvo", "V60", 2019, "GRAY"),
+(5, "DAM41UDN3CHU2WVF6", "Volvo", "V60 Cross Country", 2019, "GRAY");
+
+
+INSERT INTO Customers 
+(ID,CustomerID,Name,Phone,Email,Address,City,State_Province,Country,Postal)
+VALUES (0, 10001, "Pablo Picasso", "+34 636 17 63 82", "-", "Paseo de la Chopera, 14", "Madrid", "Madrid", "Spain", 28045),
+(1, 20001, "Abraham Lincoln	", "+1 305 907 7086", "-", "120 SW 8th St", "Miami", "Florida", "United States	", 33130),
+(2, 30001, "Napoléon Bonaparte", "+33 1 79 75 40 00", "-", "40 Rue du Colisée", "Paris", "Île-de-France	", "France", 75008);
 
 INSERT INTO Invoices 
 (ID,Invoice_number,Date,CarID,CustomerID,Sales_personID)
@@ -86,3 +88,4 @@ UPDATE Customers
 SET Email = 'hello@napoleon.me'
 WHERE ID = 2;
 
+delete from Cars where ID='4'
