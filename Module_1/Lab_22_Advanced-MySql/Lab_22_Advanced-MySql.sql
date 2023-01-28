@@ -4,8 +4,8 @@ USE publications;
 
 SELECT t.title_id, 
 ta.au_id, 
-(ta.royaltyper*(t.royalty/100)) AS advance,
-(t.price * s.qty * (t.royalty / 100) * (ta.royaltyper / 100)) AS sales_royalty
+(ta.royaltyper*(t.royalty)) AS advance,
+((t.price * s.qty) * (t.royalty) * (ta.royaltyper / 100)) AS sales_royalty
 FROM
 titles t LEFT JOIN titleauthor ta
 ON t.title_id=ta.title_id
@@ -18,8 +18,8 @@ SELECT summary.title_id, summary.au_id, summary.advance, SUM(summary.sales_royal
 FROM
 	(SELECT t.title_id, 
 	ta.au_id, 
-	(ta.royaltyper*(t.royalty/100)) AS advance,
-	(t.price * s.qty * (t.royalty / 100) * (ta.royaltyper / 100)) AS sales_royalty
+	(ta.royaltyper*(t.royalty)) AS advance,
+	((t.price * s.qty) * (t.royalty) * (ta.royaltyper / 100)) AS sales_royalty
 	FROM
 	titles t INNER JOIN titleauthor ta
 	ON t.title_id=ta.title_id
@@ -30,12 +30,12 @@ GROUP BY title_id, au_id;
     
 -- Step 3: Calculate the total profits of each author
 
-SELECT summary.au_id, (summary.advance+SUM(summary.sales_royalty)) AS profits
+SELECT summary.au_id, (SUM(summary.advance)+SUM(summary.sales_royalty)) AS profits
 FROM
 	(SELECT t.title_id, 
 	ta.au_id, 
-	(ta.royaltyper*(t.royalty/100)) AS advance,
-	(t.price * s.qty * (t.royalty / 100) * (ta.royaltyper / 100)) AS sales_royalty
+	(ta.royaltyper*(t.royalty)) AS advance,
+	((t.price * s.qty) * (t.royalty) * (ta.royaltyper / 100)) AS sales_royalty
 	FROM
 	titles t INNER JOIN titleauthor ta
 	ON t.title_id=ta.title_id
