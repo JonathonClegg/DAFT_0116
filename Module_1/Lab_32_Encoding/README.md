@@ -56,6 +56,7 @@ Encode the categorical data using the following methods using different Python l
 
 
 Add to the readme file the results for each method.
+
 Part 2: SQL
 Let’s encode the data in SQL.
 Create a database
