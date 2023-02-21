@@ -1,5 +1,7 @@
 Questions:
 
+https://public.tableau.com/authoring/LAB27-BusinessIntelligenceinTableau/Dashboard1#1
+
 1. What is the percent of total Sales for the ‘Home Office’ Customer Segment in July of 2012?
 
 b. 23.97%
@@ -41,9 +43,9 @@ a. South Dakota
 c. Envelopes
 
 
-10. What percent of total profits do the top 10 customer by Sales represent? Profit
+10. What percent of total profits do the top 10 customer by Sales represent? 
 
-d. None of the Above - 60%
+b. 5.03%
 
 11. What was the Moving Average of Sales in June of 2012, including six months prior and six months after?
 
