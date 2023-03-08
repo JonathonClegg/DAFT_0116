@@ -117,7 +117,11 @@ WHERE ts.emp_no > 109990;
 
 #Extract a dataset containing the following information about the managers: employee number, first name, and last name. Add two columns at the end – one showing the difference between the maximum and minimum salary of that employee, and another one saying whether this salary raise was higher than $30,000 or NOT.
 DROP VIEW IF EXISTS manager_info;
-CREATE VIEW manager_info AS SELECT tdm.emp_no, te.first_name, te.last_name, MAX(ts.salary) - MIN(ts.salary) AS salary_difference
+CREATE VIEW manager_info AS SELECT tdm.emp_no, te.first_name, te.last_name, 
+MAX(ts.salary) - MIN(ts.salary) AS salary_difference,
+CASE 
+WHEN MAX(ts.salary) - MIN(ts.salary) > 30000 THEN "Yes" ELSE 'No' 
+END AS greater_than_30000
 FROM t_dept_manager tdm
 JOIN t_employees te
 ON tdm.emp_no=te.emp_no
@@ -128,3 +132,14 @@ SELECT * FROM manager_info;
 
 
 #Extract the employee number, first name, and last name of the first 100 employees, and add a fourth column, called “current_employee” saying “Is still employed” if the employee is still working in the company, or “Not an employee anymore” if they aren’t. Hint: You’ll need to use data from both the ‘employees’ and the ‘dept_emp’ table to solve this exercise.
+DROP VIEW IF EXISTS first_employees;
+CREATE VIEW first_employees AS
+SELECT te.emp_no, te.first_name, te.last_name,
+CASE 
+WHEN tde.emp_no IS NOT NULL THEN 'Is still employed' ELSE 'Not an employee anymore' 
+END AS current_employee
+FROM t_employees te
+JOIN t_dept_emp tde
+ON tde.emp_no=te.emp_no
+LIMIT 100;
+SELECT * FROM first_employees;
